@@ -1,0 +1,28 @@
+#!/bin/sh
+# postinst script for #PACKAGE#
+
+set -e
+
+#DEBHELPER#
+
+case "$1" in
+  configure)
+
+  DATADIR=/var/lib/sphinx-search
+  RUNDIR=/var/run/sphinx-search
+  LOGDIR=/var/log/sphinx-search
+  user=sphinx
+
+  if [ -z "$2" ]; then
+    adduser --system --no-create-home --quiet \
+    --disabled-password --disabled-login \
+    --shell /bin/false --group --home $DATADIR $user
+    chown $user:$user $DATADIR
+    chown $user:$user $DATADIR/data
+    chown $user:$user $RUNDIR
+    chown $user:adm $LOGDIR
+  fi
+esac
+
+
+

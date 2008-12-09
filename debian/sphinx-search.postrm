@@ -1,0 +1,17 @@
+#!/bin/sh
+
+# postrm script for #PACKAGE#
+
+set -e
+
+#DEBHELPER#
+
+case "$1" in
+    purge)
+  
+    user=sphinx
+
+    if [ -x "/usr/sbin/userdel" ]; then
+        userdel $user || true
+    fi
+esac

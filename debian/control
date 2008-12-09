@@ -1,0 +1,48 @@
+Source: sphinxsearch
+Section: utils
+Priority: extra
+Maintainer: John Leach <john@brightbox.co.uk>
+Build-Depends: debhelper (>= 6), autotools-dev, g++ (>= 4), libmysqlclient15-dev, libpq-dev, cdbs (>= 0.4)
+Standards-Version: 3.7.3
+Homepage: http://www.sphinxsearch.com
+XS-Vcs-git: git://github.com/johnl/deb-sphinx-search/tree/master
+XS-Vcs-browser: http://github.com/johnl/deb-sphinx-search/tree/master
+
+Package: sphinxsearch-tools
+Section: utils
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Free open-source SQL full-text search engine
+ Sphinx is generally a standalone search engine, meant to provide fast,
+ size-efficient and relevant fulltext search functions to other applications.
+ Sphinx was specially designed to integrate well with SQL databases and
+ scripting languages.
+ .
+ Currently built-in data sources support fetching data
+ either via direct connection to MySQL or PostgreSQL, or using XML pipe
+ mechanism (a pipe to indexer in special XML-based format which Sphinx
+ recognizes).
+ .
+ As for the name, Sphinx is an acronym which is officially decoded as SQL Phrase
+ Index.
+
+Package: libsphinxsearch
+Section: libs
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Suggests: sphinxsearch-tools
+Description: Free open-source SQL full-text search engine library
+
+Package: libsphinxsearch-dev
+Section: libs
+Architecture: any
+Depends: libsphinxsearch (=${binary:Version}), ${misc:Depends}
+Description: Free open-source SQL full-text search engine library
+ This package contains the needed headers and libraries for
+ developing software using the libsphinxsearch interface.
+
+
+Package: sphinx-search-doc
+Section: doc
+Architecture: all
+Description: Documentation for sphinx-search

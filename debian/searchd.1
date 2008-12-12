@@ -1,0 +1,50 @@
+.TH SEARCHD 1 "2008-12-12" GNU "Sphinx SQL full-text search engine"
+
+.SH NAME
+searchd \- search daemon for Sphinx SQL full-text search engine
+
+.SH SYNOPSIS
+.B searchd [OPTIONS]
+
+.SH DESCRIPTION
+.B searchd
+is a server that listens for query requests and executes them against one or
+more Sphinx full-text search indexes.
+
+.SH OPTIONS
+.TP
+\-c, --config <filename>
+read configuration from specified file
+
+.TP
+\--iostats
+log per-query io stats
+
+.TP
+\--stop
+send SIGTERM to currently running 
+.B searchd 
+(PID is taken from pid_file specified
+in config file)
+
+.TP
+\--console
+run in console mode (do not fork, do not log to files)
+
+.TP
+\-p, --port <port>
+listen on given port (overrides config setting)
+
+.TP
+\-i, --index <index>
+only serve one given index
+
+.SH FILES
+.I /etc/sphinx-search/sphinx.conf
+.RS
+searchd default configuration file.
+
+.SH SEE ALSO
+.BR indexer (1),
+.BR search (1),
+.BR spelldump (1),

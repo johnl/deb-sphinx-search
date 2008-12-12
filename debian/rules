@@ -16,4 +16,5 @@ binary-install/sphinx-search::
 	dh_installdocs $(CURDIR)/doc/sphinx.txt $(CURDIR)/doc/sphinx.html $(CURDIR)/doc/sphinx.css
 	install -d -m 750 $(CURDIR)/debian/sphinx-search/var/log/sphinx-search
 	install -d -m 750 $(CURDIR)/debian/sphinx-search/var/lib/sphinx-search
+	dh_installman $(CURDIR)/debian/indexer.1  $(CURDIR)/debian/search.1  $(CURDIR)/debian/searchd.1  $(CURDIR)/debian/spelldump.1
 

@@ -1,0 +1,34 @@
+.TH SPELLDUMP 1 "2008-12-12" GNU "Sphinx SQL full-text search engine"
+
+.SH NAME
+spelldump \- an ispell dictionary dumper
+
+.SH SYNOPSIS
+.B spelldump [options] <dictionary> <affix> [result] [locale-name]
+
+.SH DESCRIPTION
+.B spelldump
+is a tool to dump ispell dictionaries and is part of the Sphinx SQL full-text
+indexer suite.
+
+.SH OPTIONS
+.TP
+-c <file>
+use case convertion defined in <file>
+
+.SH EXAMPLES
+spelldump en.dict en.aff
+.PP
+spelldump ru.dict ru.aff ru.txt ru_RU.CP1251
+.PP
+spelldump ru.dict ru.aff ru.txt .1251
+
+.SH FILES
+.I /etc/sphinx-search/sphinx.conf
+.RS
+default configuration file.
+
+.SH SEE ALSO
+.BR searchd (1),
+.BR indexer (1),
+.BR search (1),

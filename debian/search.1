@@ -1,0 +1,94 @@
+.TH SEARCH 1 "2008-12-12" GNU "Sphinx SQL full-text search engine"
+
+.SH NAME
+search \- query tool to execute searches against a Sphinx SQL full-text search index.
+
+.SH SYNOPSIS
+.B search [OPTIONS] <word1 [word2 [word3 [...]]]>
+
+.SH DESCRIPTION
+.B search
+is a tool to execute queries against a Sphinx SQL full-text search index.
+
+.SH OPTIONS
+.TP
+\-c, --config <file>
+use given config file instead of defaults
+
+.TP
+-i, --index <index>
+search given index only (default: all indexes)
+
+.TP
+-a, --any
+match any query word (default: match all words)
+
+.TP
+-b, --boolean
+match in boolean mode
+
+.TP
+-p, --phrase
+match exact phrase
+
+.TP
+-e, --extended
+match in extended mode
+
+.TP
+-f, --filter <attr> <v>
+only match if attribute attr value is v
+
+.TP
+-s, --sortby <CLAUSE>
+sort matches by 'CLAUSE' in sort_extended mode
+
+.TP
+-S, --sortexpr <EXPR>
+sort matches by 'EXPR' DESC in sort_expr mode
+
+.TP
+-o, --offset <offset>
+print matches starting from this offset (default: 0)
+
+.TP
+-l, --limit <count>
+print this many matches (default: 20)
+
+.TP
+-q, --noinfo
+don't print document info from SQL database
+
+.TP
+-g, --group <attr>
+group by attribute named attr
+
+.TP
+-gs,--groupsort <expr>
+sort groups by <expr>
+
+.TP
+--sort=date
+sort by date, descending
+
+.TP
+--rsort=date
+sort by date, ascending
+
+.TP
+--sort=ts
+sort by time segments
+
+.TP
+--stdin
+read query from stdin
+
+.SH FILES
+.I /etc/sphinx-search/sphinx.conf
+.RS
+default configuration file.
+
+.SH SEE ALSO
+.BR searchd (1),
+.BR indexer (1),
+.BR spelldump (1),

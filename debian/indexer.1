@@ -1,0 +1,65 @@
+.TH INDEXER 1 "2008-12-12" GNU "Sphinx SQL full-text search engine"
+
+.SH NAME
+indexer \- tool to build Sphinx SQL full-text search indexes.
+
+.SH SYNOPSIS
+.B indexer [OPTIONS] [indexname1 [indexname2 [...]]]
+
+.SH DESCRIPTION
+.B indexer
+is a tool to build Sphinx SQL full-text search indexes from various data
+sources.
+
+.SH OPTIONS
+.TP
+--config <file>
+read configuration from specified file
+
+.TP
+--all
+reindex all configured indexes
+
+.TP
+--quiet
+be quiet, only print errors
+
+.TP
+--noprogress
+do not display progress
+(automatically on if output is not to a tty)
+
+.TP
+--rotate
+send SIGHUP to searchd when indexing is over
+to rotate updated indexes automatically
+
+.TP
+--buildstops <output.txt> <N>
+build top N stopwords and write them to given file
+
+.TP
+--buildfreqs
+store words frequencies to output.txt
+(used with --buildstops only)
+
+.TP
+--merge <dst-index> <src-index>
+merge 'src-index' into 'dst-index'
+\'dst-index' will receive merge result
+\'src-index' will not be modified
+
+.TP
+--merge-dst-range <attr> <min> <max>
+filter 'dst-index' on merge, keep only those documents
+where 'attr' is between 'min' and 'max' (inclusive)
+
+.SH FILES
+.I /etc/sphinx-search/sphinx.conf
+.RS
+default configuration file.
+
+.SH SEE ALSO
+.BR searchd (1),
+.BR search (1),
+.BR spelldump (1),

@@ -10,9 +10,9 @@ DEB_CONFIGURE_USER_FLAGS += --localstatedir ${prefix}/var/lib/sphinx-search
 DEB_CONFIGURE_USER_FLAGS += --sysconfdir ${prefix}/etc/sphinx-search
 
 binary-install/sphinx-search::
-	sed -i -e 's/\/var\/lib\/sphinx-search\/log/\/var\/log\/sphinx-search/g' $(CURDIR)/debian/sphinx-search/etc/*
+	sed -i -e 's/\/var\/lib\/sphinx-search\/log/\/var\/log\/sphinx-search/g' $(CURDIR)/debian/sphinx-search/etc/sphinx-search/*
 	rmdir $(CURDIR)/debian/sphinx-search/var/lib/sphinx-search/log
-	dh_installexamples $(CURDIR)/debian/sphinx-search/etc/*
+	dh_installexamples $(CURDIR)/debian/sphinx-search/etc/sphinx-search/*
 	rm $(CURDIR)/debian/sphinx-search/etc/*
 	dh_installdocs $(CURDIR)/doc/sphinx.txt $(CURDIR)/doc/sphinx.html $(CURDIR)/doc/sphinx.css
 	install -d -m 750 $(CURDIR)/debian/sphinx-search/var/log/sphinx-search

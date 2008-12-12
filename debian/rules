@@ -7,6 +7,7 @@ include /usr/share/cdbs/1/class/autotools.mk
 DEB_CONFIGURE_USER_FLAGS += --with-pgsql
 DEB_CONFIGURE_USER_FLAGS += --with-iconv
 DEB_CONFIGURE_USER_FLAGS += --localstatedir ${prefix}/var/lib/sphinx-search
+DEB_CONFIGURE_USER_FLAGS += --sysconfdir ${prefix}/etc/sphinx-search
 
 binary-install/sphinx-search::
 	sed -i -e 's/\/var\/lib\/sphinx-search\/log/\/var\/log\/sphinx-search/g' $(CURDIR)/debian/sphinx-search/etc/*
@@ -17,4 +18,5 @@ binary-install/sphinx-search::
 	install -d -m 750 $(CURDIR)/debian/sphinx-search/var/log/sphinx-search
 	install -d -m 750 $(CURDIR)/debian/sphinx-search/var/lib/sphinx-search
 	dh_installman $(CURDIR)/debian/indexer.1  $(CURDIR)/debian/search.1  $(CURDIR)/debian/searchd.1  $(CURDIR)/debian/spelldump.1
+	dh_installdirs /var/run/sphinx-search /etc/sphinx-search
 
